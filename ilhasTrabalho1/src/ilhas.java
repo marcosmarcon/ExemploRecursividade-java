@@ -36,7 +36,7 @@ public class ilhas {
 	            }
 	            
 	        
-	            System.out.println((contaIlhas(matriz)));
+	            System.out.println((contaIlhas(matriz)));    // chama o primeiro metodo
 	            
 	        
 	       } catch (FileNotFoundException ex) {
