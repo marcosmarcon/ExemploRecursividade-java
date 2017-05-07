@@ -7,14 +7,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ilhas {
-	static String posicaoIlha = "" ;
-    
+	     
       public static void main(String[] args) {
           
           BufferedReader br = null;
            try {
                Scanner ler = new Scanner(System.in);
-               br = new BufferedReader(new FileReader("example_2.txt"));
+               br = new BufferedReader(new FileReader("example_3.txt"));
 
                 String primeiraLinha = br.readLine();
                 String[] basesDaMatriz = primeiraLinha.split(" ");  // pega o tamanho da matriz
@@ -34,7 +33,6 @@ public class ilhas {
                 
             
                 System.out.println((contaIlhas(matriz)));    // chama o primeiro metodo
-             // System.out.println(posicaoIlha); exibe a posicao ou cordenada das ilhas
             
            } catch (FileNotFoundException ex) {
                Logger.getLogger(ilhas.class.getName()).log(Level.SEVERE, null, ex);
@@ -74,8 +72,10 @@ public class ilhas {
 		    ou se a posicao atual eh diferente de 1 */             
             if(i<0 || i>=matrizI || j<0 || j>=matrizJ || matriz[i][j]!= 1) 
                	return;  // se for tudo true continua e chama o proprio metodo novamente 
-            
-            posicaoIlha = posicaoIlha + coordenadas(i,j,count); 
+          
+            representacao representacao = new representacao (i,j,count); 
+            representacao.coordenadas(i,j,count);
+           
             matriz[i][j]=2;  // caso a posicao atual seja 1 no teste acima, a posicao atual recebe 2                           
                              // evitando que uma posicao seja contada novamente
             
@@ -87,14 +87,12 @@ public class ilhas {
         }        
   
         
-        public static String coordenadas(int i, int j, int numeroilha){
-        	return "ilha "+ numeroilha+ " [X"+ i + ",Y"+ j +"]"+"\r\n"; // guarda a posicao atual ou a coordenada
-        }
+       
 
 
 
 }
- 
+
  
 
 
